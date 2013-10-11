@@ -1,22 +1,8 @@
 package com.ajwgeek.betterlan.gui.progress;
 
-import java.io.DataInput;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketException;
 
-import net.minecraft.client.multiplayer.ServerAddress;
 import net.minecraft.client.multiplayer.ServerData;
-import net.minecraft.logging.ILogAgent;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.Packet254ServerPing;
-import net.minecraft.util.ChatAllowedCharacters;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MathHelper;
 
 import com.ajwgeek.betterlan.constant.GlobalVariables;
 import com.ajwgeek.betterlan.gui.basemod.CustomGuiConnecting;
@@ -24,7 +10,6 @@ import com.ajwgeek.betterlan.src.BetterLAN;
 
 public class GuiScreenLoading extends GuiScreenProgress
 {
-	private static String output;
 	private BetterLAN lan;
 	private ServerData data = new ServerData("BetterLAN Server", "127.0.0.1:25565");
 	private boolean connected = false;
@@ -37,7 +22,6 @@ public class GuiScreenLoading extends GuiScreenProgress
 
 	public static void setOutput(String out)
 	{
-		output = out;
 	}
 
 	private void joinGame()

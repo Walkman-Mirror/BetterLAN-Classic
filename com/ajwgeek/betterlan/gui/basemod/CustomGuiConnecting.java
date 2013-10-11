@@ -1,7 +1,5 @@
 package com.ajwgeek.betterlan.gui.basemod;
 
-import java.io.IOException;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -23,9 +21,8 @@ public class CustomGuiConnecting extends GuiScreenProgress
     private NetClientHandler clientHandler;
     private boolean cancelled;
     private final GuiScreen field_98098_c;
-	private ServerData data = new ServerData("BetterLAN Server", "127.0.0.1:25565");
-
-    public CustomGuiConnecting(GuiScreen par1GuiScreen, Minecraft par2Minecraft, ServerData par3ServerData)
+    
+	public CustomGuiConnecting(GuiScreen par1GuiScreen, Minecraft par2Minecraft, ServerData par3ServerData)
     {
         this.mc = par2Minecraft;
         this.field_98098_c = par1GuiScreen;

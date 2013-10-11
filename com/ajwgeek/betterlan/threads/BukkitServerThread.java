@@ -33,14 +33,14 @@ public class BukkitServerThread extends Thread
 		try
 		{
 			System.out.println("[BetterLAN] Starting server process");
-			URL[] jarURLArray = { server.lan.serverJAR().toURL() };
+			URL[] jarURLArray = { server.lan.serverJAR().toURI().toURL() };
 			URLClassLoader serverClassLoader = new URLClassLoader(jarURLArray, this.getClass().getClassLoader());
-			Class mainClass = Class.forName("org.bukkit.craftbukkit.Main", true, serverClassLoader);
-			Class sampleArgClass[] = { (new String[1]).getClass() };
+			Class<?> mainClass = Class.forName("org.bukkit.craftbukkit.Main", true, serverClassLoader);
+			Class<?> sampleArgClass[] = { (new String[1]).getClass() };
 			Method mainMethod = mainClass.getDeclaredMethod("main", sampleArgClass);
 			Object mainMethodInstance = mainClass.newInstance();
 			Object serverArgConverted[] = { args };
-			Object result = mainMethod.invoke(mainMethodInstance, serverArgConverted);
+			mainMethod.invoke(mainMethodInstance, serverArgConverted);
 		}
 		catch (Exception e)
 		{

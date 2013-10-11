@@ -1,12 +1,9 @@
 package com.ajwgeek.betterlan.server;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.net.URLClassLoader;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.WorldSettings;
-import net.minecraft.world.storage.WorldInfo;
 
 import com.ajwgeek.betterlan.src.BetterLAN;
 import com.ajwgeek.betterlan.threads.BukkitServerStopThread;
@@ -46,7 +43,7 @@ public class BetterlanServer
 
 	public void processWorldSettings()
 	{
-		sendCommand("op " + Minecraft.getMinecraft().func_110432_I().func_111285_a());
+		sendCommand("op " + Minecraft.getMinecraft().getSession().getUsername());
 		sendCommand("defaultgamemode " + w.getGameType());
 		sendCommand("difficulty " + Minecraft.getMinecraft().gameSettings.difficulty);
 	}

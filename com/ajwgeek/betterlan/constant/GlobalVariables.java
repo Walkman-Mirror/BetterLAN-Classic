@@ -4,17 +4,17 @@ package com.ajwgeek.betterlan.constant;
 public class GlobalVariables
 {
 	//Start Updated Every Release
-	public static final String minecraftversion = "1.6.2";
-	public static final String modVersion = "V3";
+	public static final String minecraftversion = "1.6.4";
+	public static final String modVersion = "1.0.0.1"; //Major Minor Revision Build
 	public static final String modID = "BetterLAN";
 	public static final String modName = "BetterLAN";
 	
-	public static final String serverDownloadURL = "https://dl.dropbox.com/s/hywy80wz0tlx3y6/1.6.2.jar";
-	public static final String configDownloadURL = "https://dl.dropbox.com/s/1zzyqjj2kalmukp/configurations.zip";
-	public static final String pluginURL = "https://dl.dropbox.com/s/1bnoqt2lfv3upg4/betterlan-utils.jar";
-	public static final String serverJarName = "1.6.2.jar";
-	public static final String pName = "betterlan-1.6.2.jar";
-	public static final String settingsFile = "betterlan_settings_1_6_2.cfg";
+	public static final String serverDownloadURL = "https://dl.dropbox.com/s/s8hpmshosjygzdv/1.6.4.jar";
+	public static final String configDownloadURL = "https://dl.dropbox.com/s/7gwdayp1blum0fh/configurations.zip";
+	public static final String pluginURL         = "https://dl.dropbox.com/s/835pq9h0q04rxdq/plugin.jar";
+	public static final String serverJarName = "1.6.4.jar";
+	public static final String pName = "betterlan-1.6.4.jar";
+	public static final String settingsFile = "betterlan_settings_1_6_4.cfg";
 	//End Updated Every Release
 	
 	//Start Folder Names

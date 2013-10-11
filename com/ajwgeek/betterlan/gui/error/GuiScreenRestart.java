@@ -8,6 +8,7 @@ import com.ajwgeek.betterlan.constant.GlobalVariables;
 
 public class GuiScreenRestart extends GuiScreen
 {
+	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
 		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 25, GlobalVariables.close));

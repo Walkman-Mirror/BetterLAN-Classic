@@ -2,14 +2,14 @@ package com.ajwgeek.betterlan.util;
 
 import java.util.EnumSet;
 
-import org.lwjgl.input.Keyboard;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiDisconnected;
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSelectWorld;
+
+import org.lwjgl.input.Keyboard;
 
 import com.ajwgeek.betterlan.gui.debug.GuiDebug;
 import com.ajwgeek.betterlan.gui.progress.GuiScreenDownloadingResources;

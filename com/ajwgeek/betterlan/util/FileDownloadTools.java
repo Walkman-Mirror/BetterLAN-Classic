@@ -28,7 +28,6 @@ public class FileDownloadTools
 {
 	public void saveUrl(String filename, String urlString) throws Exception
 	{
-		long lastMillis = System.currentTimeMillis();
 		System.out.println("[BetterLAN] Saving: " + urlString + " to: " + filename);
 		URL url = new URL(urlString);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -56,7 +55,7 @@ public class FileDownloadTools
 	}
 
 	@SuppressWarnings("resource")
-	static public void extractFolder(String zipFile) throws ZipException, IOException
+	public static void extractFolder(String zipFile) throws ZipException, IOException
 	{
 		System.out.println("[BetterLAN] Extracting: " + zipFile);
 
@@ -67,7 +66,7 @@ public class FileDownloadTools
 		String newPath = zipFile.substring(0, zipFile.length() - 4);
 
 		new File(newPath).mkdir();
-		Enumeration zipFileEntries = zip.entries();
+		Enumeration<? extends ZipEntry> zipFileEntries = zip.entries();
 
 		while (zipFileEntries.hasMoreElements())
 		{

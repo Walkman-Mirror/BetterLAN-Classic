@@ -3,12 +3,12 @@ package com.ajwgeek.betterlan.threads;
 import java.net.ConnectException;
 import java.net.UnknownHostException;
 
-import com.ajwgeek.betterlan.gui.basemod.CustomGuiConnecting;
-import com.ajwgeek.betterlan.src.BetterLAN;
-
 import net.minecraft.client.gui.GuiDisconnected;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.network.packet.Packet2ClientProtocol;
+
+import com.ajwgeek.betterlan.gui.basemod.CustomGuiConnecting;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,7 +37,7 @@ public class ThreadConnectToServer extends Thread
                 return;
             }
 
-            CustomGuiConnecting.getNetClientHandler(this.connectingGui).addToSendQueue(new Packet2ClientProtocol(74, CustomGuiConnecting.func_74254_c(this.connectingGui).func_110432_I().func_111285_a(), this.ip, this.port));
+            CustomGuiConnecting.getNetClientHandler(this.connectingGui).addToSendQueue(new Packet2ClientProtocol(74, CustomGuiConnecting.func_74254_c(this.connectingGui).getSession().getUsername(), this.ip, this.port));
         }
         catch (UnknownHostException unknownhostexception)
         {

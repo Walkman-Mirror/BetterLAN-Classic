@@ -6,12 +6,13 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ajwgeek.betterlan.src.BetterLAN;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.StringTranslate;
+
+import com.ajwgeek.betterlan.src.BetterLAN;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,13 +27,14 @@ public class CustomGuiShareToLan extends GuiScreen
 	private boolean allowCommands = false;
 	private String currentIP;
 	private int num = 0;
-	private List ip;
+	private List<String> ip;
 
 	public CustomGuiShareToLan(GuiScreen par1GuiScreen)
 	{
 		this.parentScreen = par1GuiScreen;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui()
 	{
@@ -118,9 +120,9 @@ public class CustomGuiShareToLan extends GuiScreen
 		}
 	}
 
-	private List getIP()
+	private List<String> getIP()
 	{
-		List outputList = new ArrayList();
+		List<String> outputList = new ArrayList<String>();
 		try
 		{
 			InetAddress localIP = InetAddress.getLocalHost();
@@ -144,16 +146,16 @@ public class CustomGuiShareToLan extends GuiScreen
 
 	private void func_74088_g()
 	{
-		this.buttonGameMode.displayString = I18n.func_135053_a("selectWorld.gameMode") + " " + I18n.func_135053_a("selectWorld.gameMode." + this.gameMode);
-		this.buttonAllowCommandsToggle.displayString = I18n.func_135053_a("selectWorld.allowCommands") + " ";
+		this.buttonGameMode.displayString = I18n.getString("selectWorld.gameMode") + " " + I18n.getString("selectWorld.gameMode." + this.gameMode);
+		this.buttonAllowCommandsToggle.displayString = I18n.getString("selectWorld.allowCommands") + " ";
 
 		if (this.allowCommands)
 		{
-			this.buttonAllowCommandsToggle.displayString = this.buttonAllowCommandsToggle.displayString + I18n.func_135053_a("options.on");
+			this.buttonAllowCommandsToggle.displayString = this.buttonAllowCommandsToggle.displayString + I18n.getString("options.on");
 		}
 		else
 		{
-			this.buttonAllowCommandsToggle.displayString = this.buttonAllowCommandsToggle.displayString + I18n.func_135053_a("options.off");
+			this.buttonAllowCommandsToggle.displayString = this.buttonAllowCommandsToggle.displayString + I18n.getString("options.off");
 		}
 	}
 

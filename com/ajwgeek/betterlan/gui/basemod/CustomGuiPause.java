@@ -2,8 +2,6 @@ package com.ajwgeek.betterlan.gui.basemod;
 
 import java.io.IOException;
 
-import com.ajwgeek.betterlan.src.BetterLAN;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiIngameMenu;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -16,15 +14,14 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.StatCollector;
 
+import com.ajwgeek.betterlan.src.BetterLAN;
+
 public class CustomGuiPause extends GuiIngameMenu
 {
-	private int updateCounter2 = 0;
-	private int updateCounter = 0;
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui()
 	{
-		this.updateCounter2 = 0;
 		this.buttonList.clear();
 		byte var1 = -16;
 		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 120 + var1, StatCollector.translateToLocal("menu.returnToMenu")));

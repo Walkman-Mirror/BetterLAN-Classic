@@ -3,19 +3,16 @@ package com.ajwgeek.betterlan.gui.debug;
 import java.io.IOException;
 import java.util.zip.ZipException;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
 
 import com.ajwgeek.betterlan.constant.GlobalVariables;
 import com.ajwgeek.betterlan.gui.progress.GuiScreenDownloadingResources;
 import com.ajwgeek.betterlan.gui.progress.GuiScreenProgress;
-import com.ajwgeek.betterlan.src.BetterLAN;
-import com.ajwgeek.betterlan.threads.DownloadResourcesThread;
 import com.ajwgeek.betterlan.util.FileDownloadTools;
 
 public class GuiDebug extends GuiScreenProgress
 {
+	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
 		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, 50, "Force Update Resources"));
@@ -39,7 +36,7 @@ public class GuiDebug extends GuiScreenProgress
 			try
 			{
 				fdu.saveUrl(b.configZip().getCanonicalPath(), GlobalVariables.configDownloadURL);
-				fdu.extractFolder(b.configZip().getCanonicalPath());
+				FileDownloadTools.extractFolder(b.configZip().getCanonicalPath());
 				b.configZip().deleteOnExit();
 				fdu.saveUrl(b.pluginFile().getCanonicalPath(), GlobalVariables.pluginURL);
 				guiButton.displayString = "Done!";

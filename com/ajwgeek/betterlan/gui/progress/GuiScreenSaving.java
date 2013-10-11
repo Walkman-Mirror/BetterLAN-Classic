@@ -9,12 +9,9 @@ import com.ajwgeek.betterlan.src.BetterLAN;
 
 public class GuiScreenSaving extends GuiScreenProgress
 {
-	private BetterLAN lan;
-
 	public GuiScreenSaving()
 	{
 		super();
-		this.lan = BetterLAN.instance;
 		try
 		{
 			BetterLAN.instance.getServerInstance().stopServer();

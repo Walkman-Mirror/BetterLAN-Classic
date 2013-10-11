@@ -1,34 +1,21 @@
 package com.ajwgeek.betterlan.gui.basemod;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import java.util.List;
 import java.util.Random;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiCreateWorld;
-import net.minecraft.client.gui.GuiRenameWorld;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.gui.GuiYesNo;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumGameType;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.storage.ISaveFormat;
-import net.minecraft.world.storage.ISaveHandler;
-import net.minecraft.world.storage.SaveFormatComparator;
-import net.minecraft.world.storage.WorldInfo;
-import org.lwjgl.input.Keyboard;
 
-import com.ajwgeek.betterlan.gui.progress.GuiScreenProgress;
-import com.ajwgeek.betterlan.gui.progress.GuiScreenLoading;
 import com.ajwgeek.betterlan.src.BetterLAN;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class CustomGuiCreateWorld extends GuiCreateWorld
@@ -43,8 +30,6 @@ public class CustomGuiCreateWorld extends GuiCreateWorld
 	private boolean commandsAllowed;
 	private String gameMode = "survival";
 	private boolean generateStructures = true;
-	private GuiTextField textboxWorldName;
-
 	public CustomGuiCreateWorld(GuiScreen par1GuiScreen)
 	{
 		super(par1GuiScreen);

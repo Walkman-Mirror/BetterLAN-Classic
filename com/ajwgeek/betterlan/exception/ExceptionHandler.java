@@ -10,6 +10,7 @@ import net.minecraft.src.ModLoader;
 import com.ajwgeek.betterlan.gui.error.GuiErrorScreen;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
+@SuppressWarnings("deprecation")
 public class ExceptionHandler
 {
 	public ExceptionHandler()

@@ -23,6 +23,7 @@ public class GuiErrorScreen extends GuiScreen
 		this.message3 = GlobalVariables.errorSaved;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
 		super.initGui();
