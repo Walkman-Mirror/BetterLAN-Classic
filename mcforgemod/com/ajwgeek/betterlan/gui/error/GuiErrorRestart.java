@@ -4,14 +4,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
+import com.ajwgeek.betterlan.constant.Constants;
 
-public class GuiScreenRestart extends GuiScreen
+public class GuiErrorRestart extends GuiScreen
 {
 	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
-		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 25, GlobalVariables.close));
+		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 25, Constants.close));
 	}
 
 	protected void actionPerformed(GuiButton guiButton)
@@ -34,7 +34,7 @@ public class GuiScreenRestart extends GuiScreen
 	public void drawScreen(int par1, int par2, float par3)
 	{
 		drawDefaultBackground();
-		drawCenteredString(fontRenderer, GlobalVariables.restartNow, width / 2, height / 6 + 75, 0xffffff);
+		drawCenteredString(fontRenderer, Constants.restartNow, width / 2, height / 6 + 75, 0xffffff);
 		super.drawScreen(par1, par2, par3);
 	}
 }

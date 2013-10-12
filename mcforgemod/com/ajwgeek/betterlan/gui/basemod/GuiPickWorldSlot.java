@@ -12,11 +12,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-class CustomGuiWorldSlot extends GuiSlot
+class GuiPickWorldSlot extends GuiSlot
 {
-	final CustomGuiSelectWorld parentWorldGui;
+	final GuiPickWorld parentWorldGui;
 
-	public CustomGuiWorldSlot(CustomGuiSelectWorld par1GuiSelectWorld)
+	public GuiPickWorldSlot(GuiPickWorld par1GuiSelectWorld)
 	{
 		super(par1GuiSelectWorld.getMinecraft(), par1GuiSelectWorld.width, par1GuiSelectWorld.height, 32, par1GuiSelectWorld.height - 64, 36);
 		this.parentWorldGui = par1GuiSelectWorld;
@@ -24,17 +24,17 @@ class CustomGuiWorldSlot extends GuiSlot
 
 	protected int getSize()
 	{
-		return CustomGuiSelectWorld.getSize(this.parentWorldGui).size();
+		return GuiPickWorld.getSize(this.parentWorldGui).size();
 	}
 
 	protected void elementClicked(int par1, boolean par2)
 	{
-		CustomGuiSelectWorld.onElementSelected(this.parentWorldGui, par1);
-		boolean flag1 = CustomGuiSelectWorld.getSelectedWorld(this.parentWorldGui) >= 0 && CustomGuiSelectWorld.getSelectedWorld(this.parentWorldGui) < this.getSize();
-		CustomGuiSelectWorld.getSelectButton(this.parentWorldGui).enabled = flag1;
-		CustomGuiSelectWorld.getRenameButton(this.parentWorldGui).enabled = flag1;
-		CustomGuiSelectWorld.getDeleteButton(this.parentWorldGui).enabled = flag1;
-		CustomGuiSelectWorld.func_82312_f(this.parentWorldGui).enabled = flag1;
+		GuiPickWorld.onElementSelected(this.parentWorldGui, par1);
+		boolean flag1 = GuiPickWorld.getSelectedWorld(this.parentWorldGui) >= 0 && GuiPickWorld.getSelectedWorld(this.parentWorldGui) < this.getSize();
+		GuiPickWorld.getSelectButton(this.parentWorldGui).enabled = flag1;
+		GuiPickWorld.getRenameButton(this.parentWorldGui).enabled = flag1;
+		GuiPickWorld.getDeleteButton(this.parentWorldGui).enabled = flag1;
+		GuiPickWorld.func_82312_f(this.parentWorldGui).enabled = flag1;
 
 		if (par2 && flag1)
 		{
@@ -44,12 +44,12 @@ class CustomGuiWorldSlot extends GuiSlot
 
 	protected boolean isSelected(int par1)
 	{
-		return par1 == CustomGuiSelectWorld.getSelectedWorld(this.parentWorldGui);
+		return par1 == GuiPickWorld.getSelectedWorld(this.parentWorldGui);
 	}
 
 	protected int getContentHeight()
 	{
-		return CustomGuiSelectWorld.getSize(this.parentWorldGui).size() * 36;
+		return GuiPickWorld.getSize(this.parentWorldGui).size() * 36;
 	}
 
 	protected void drawBackground()
@@ -59,26 +59,26 @@ class CustomGuiWorldSlot extends GuiSlot
 
 	protected void drawSlot(int par1, int par2, int par3, int par4, Tessellator par5Tessellator)
 	{
-		SaveFormatComparator saveformatcomparator = (SaveFormatComparator) CustomGuiSelectWorld.getSize(this.parentWorldGui).get(par1);
+		SaveFormatComparator saveformatcomparator = (SaveFormatComparator) GuiPickWorld.getSize(this.parentWorldGui).get(par1);
 		String s = saveformatcomparator.getDisplayName();
 
 		if (s == null || MathHelper.stringNullOrLengthZero(s))
 		{
-			s = CustomGuiSelectWorld.func_82313_g(this.parentWorldGui) + " " + (par1 + 1);
+			s = GuiPickWorld.func_82313_g(this.parentWorldGui) + " " + (par1 + 1);
 		}
 
 		String s1 = saveformatcomparator.getFileName();
-		s1 = s1 + " (" + CustomGuiSelectWorld.func_82315_h(this.parentWorldGui).format(new Date(saveformatcomparator.getLastTimePlayed()));
+		s1 = s1 + " (" + GuiPickWorld.func_82315_h(this.parentWorldGui).format(new Date(saveformatcomparator.getLastTimePlayed()));
 		s1 = s1 + ")";
 		String s2 = "";
 
 		if (saveformatcomparator.requiresConversion())
 		{
-			s2 = CustomGuiSelectWorld.func_82311_i(this.parentWorldGui) + " " + s2;
+			s2 = GuiPickWorld.func_82311_i(this.parentWorldGui) + " " + s2;
 		}
 		else
 		{
-			s2 = CustomGuiSelectWorld.func_82314_j(this.parentWorldGui)[saveformatcomparator.getEnumGameType().getID()];
+			s2 = GuiPickWorld.func_82314_j(this.parentWorldGui)[saveformatcomparator.getEnumGameType().getID()];
 
 			if (saveformatcomparator.isHardcoreModeEnabled())
 			{

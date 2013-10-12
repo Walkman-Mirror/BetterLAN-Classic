@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GuiScreenProgress extends GuiScreen
+public class GuiProgress extends GuiScreen
 {
 	protected long lastMills;
 	protected long startMills;
@@ -33,7 +33,7 @@ public class GuiScreenProgress extends GuiScreen
 	protected int percent = 0;
 	protected boolean downloading = false;
 
-	public GuiScreenProgress()
+	public GuiProgress()
 	{
 		progressIndicator = new String();
 		lastMills = startMills = System.currentTimeMillis();

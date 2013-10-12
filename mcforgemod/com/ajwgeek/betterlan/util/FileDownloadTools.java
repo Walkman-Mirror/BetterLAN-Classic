@@ -21,7 +21,7 @@ import java.util.zip.ZipFile;
 
 import net.minecraft.client.Minecraft;
 
-import com.ajwgeek.betterlan.gui.progress.GuiScreenProgress;
+import com.ajwgeek.betterlan.gui.progress.GuiProgress;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
 public class FileDownloadTools
@@ -38,7 +38,7 @@ public class FileDownloadTools
 		java.io.BufferedOutputStream bout = new BufferedOutputStream(fos, 1024);
 		byte[] data = new byte[1024];
 		int i = 0;
-		GuiScreenProgress m = (GuiScreenProgress) Minecraft.getMinecraft().currentScreen;
+		GuiProgress m = (GuiProgress) Minecraft.getMinecraft().currentScreen;
 
 		while ((i = in.read(data, 0, 1024)) >= 0)
 		{

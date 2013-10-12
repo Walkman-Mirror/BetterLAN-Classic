@@ -10,13 +10,14 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.StringTranslate;
 
+import com.ajwgeek.betterlan.constant.Constants;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class CustomGuiShareToLan extends GuiScreen
+public class GuiOpenToLan extends GuiScreen
 {
 	private final GuiScreen parentScreen;
 	private GuiButton buttonGameMode;
@@ -28,7 +29,7 @@ public class CustomGuiShareToLan extends GuiScreen
 	private int num = 0;
 	private List<String> ip;
 
-	public CustomGuiShareToLan(GuiScreen par1GuiScreen)
+	public GuiOpenToLan(GuiScreen par1GuiScreen)
 	{
 		this.parentScreen = par1GuiScreen;
 	}
@@ -50,7 +51,7 @@ public class CustomGuiShareToLan extends GuiScreen
 
 		this.ip = getIP();
 		this.currentIP = this.ip.get(this.num).toString();
-		this.buttonList.add(this.ipButton = new GuiButton(105, this.width / 2 + 5, 125, 150, 20, bm.translateKey("IP: " + this.currentIP)));
+		this.buttonList.add(this.ipButton = new GuiButton(105, this.width / 2 + 5, 125, 150, 20, bm.translateKey(Constants.ipStringA + this.currentIP)));
 
 		if (this.ip.size() == 1)
 		{
@@ -60,7 +61,7 @@ public class CustomGuiShareToLan extends GuiScreen
 		func_74088_g();
 	}
 
-	protected void a(GuiButton par1GuiButton)
+	protected void actionPerformed(GuiButton par1GuiButton)
 	{
 		if (par1GuiButton.id == 102)
 		{
@@ -92,14 +93,16 @@ public class CustomGuiShareToLan extends GuiScreen
 				this.num += 1;
 			}
 			this.currentIP = this.ip.get(this.num).toString();
-			this.ipButton.displayString = ("IP: " + this.currentIP);
+			this.ipButton.displayString = (Constants.ipStringA + this.currentIP);
 		}
 		else if (par1GuiButton.id == 101)
 		{
 			this.mc.displayGuiScreen((GuiScreen) null);
 			BetterLAN.instance.getOutputClient().sendCommand("defaultgamemode " + this.gameMode);
+			BetterLAN.instance.getOutputClient().sendCommand("betterlan_broadcast " + Constants.sharedOverLAN + this.currentIP);
 			BetterLAN.instance.setSharedServer(true);
 			BetterLAN.instance.setCheatsEnabled(this.allowCommands);
+			BetterLAN.instance.getServerInstance().shareToLAN();
 		}
 	}
 
@@ -142,7 +145,7 @@ public class CustomGuiShareToLan extends GuiScreen
 		}
 	}
 
-	public void a(int par1, int par2, float par3)
+	public void drawScreen(int par1, int par2, float par3)
 	{
 		StringTranslate bm = new StringTranslate();
 

@@ -25,14 +25,14 @@ import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.SaveFormatComparator;
 import net.minecraft.world.storage.WorldInfo;
 
-import com.ajwgeek.betterlan.gui.progress.GuiScreenLoading;
+import com.ajwgeek.betterlan.gui.progress.GuiLoadingScreen;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class CustomGuiSelectWorld extends GuiScreen
+public class GuiPickWorld extends GuiScreen
 {
 	private final DateFormat dateFormatter = new SimpleDateFormat();
 	protected GuiScreen parentScreen;
@@ -40,7 +40,7 @@ public class CustomGuiSelectWorld extends GuiScreen
 	private boolean selected;
 	private int selectedWorld;
 	private List<SaveFormatComparator> saveList;
-	private CustomGuiWorldSlot worldSlotContainer;
+	private GuiPickWorldSlot worldSlotContainer;
 
 	private String localizedWorldText;
 	private String localizedMustConvertText;
@@ -54,7 +54,7 @@ public class CustomGuiSelectWorld extends GuiScreen
 	private GuiButton buttonRename;
 	private GuiButton buttonRecreate;
 
-	public CustomGuiSelectWorld(GuiScreen par1GuiScreen)
+	public GuiPickWorld(GuiScreen par1GuiScreen)
 	{
 		this.parentScreen = par1GuiScreen;
 	}
@@ -79,7 +79,7 @@ public class CustomGuiSelectWorld extends GuiScreen
 		this.localizedGameModeText[EnumGameType.SURVIVAL.getID()] = I18n.getString("gameMode.survival");
 		this.localizedGameModeText[EnumGameType.CREATIVE.getID()] = I18n.getString("gameMode.creative");
 		this.localizedGameModeText[EnumGameType.ADVENTURE.getID()] = I18n.getString("gameMode.adventure");
-		this.worldSlotContainer = new CustomGuiWorldSlot(this);
+		this.worldSlotContainer = new GuiPickWorldSlot(this);
 		this.worldSlotContainer.registerScrollButtons(4, 5);
 		this.initButtons();
 	}
@@ -159,7 +159,7 @@ public class CustomGuiSelectWorld extends GuiScreen
 			{
 				if (BetterLAN.instance.getModEnabled())
 				{
-					this.mc.displayGuiScreen(new CustomGuiCreateWorld(this));
+					this.mc.displayGuiScreen(new GuiMakeWorld(this));
 				}
 				else
 				{
@@ -215,7 +215,7 @@ public class CustomGuiSelectWorld extends GuiScreen
 			{
 				if (BetterLAN.instance.getModEnabled())
 				{
-					Minecraft.getMinecraft().displayGuiScreen(new GuiScreenLoading());
+					Minecraft.getMinecraft().displayGuiScreen(new GuiLoadingScreen());
 					String world = ((SaveFormatComparator) saveList.get(par1)).getFileName();
 					ISaveHandler isavehandler = mc.getSaveLoader().getSaveLoader(world, false);
 					WorldInfo wi = isavehandler.loadWorldInfo();
@@ -285,57 +285,57 @@ public class CustomGuiSelectWorld extends GuiScreen
 		return fontRenderer;
 	}
 
-	static List<SaveFormatComparator> getSize(CustomGuiSelectWorld par0GuiSelectWorld)
+	static List<SaveFormatComparator> getSize(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.saveList;
 	}
 
-	static int onElementSelected(CustomGuiSelectWorld par0GuiSelectWorld, int par1)
+	static int onElementSelected(GuiPickWorld par0GuiSelectWorld, int par1)
 	{
 		return par0GuiSelectWorld.selectedWorld = par1;
 	}
 
-	static int getSelectedWorld(CustomGuiSelectWorld par0GuiSelectWorld)
+	static int getSelectedWorld(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.selectedWorld;
 	}
 
-	static GuiButton getSelectButton(CustomGuiSelectWorld par0GuiSelectWorld)
+	static GuiButton getSelectButton(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.buttonSelect;
 	}
 
-	static GuiButton getRenameButton(CustomGuiSelectWorld par0GuiSelectWorld)
+	static GuiButton getRenameButton(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.buttonDelete;
 	}
 
-	static GuiButton getDeleteButton(CustomGuiSelectWorld par0GuiSelectWorld)
+	static GuiButton getDeleteButton(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.buttonRename;
 	}
 
-	static GuiButton func_82312_f(CustomGuiSelectWorld par0GuiSelectWorld)
+	static GuiButton func_82312_f(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.buttonRecreate;
 	}
 
-	static String func_82313_g(CustomGuiSelectWorld par0GuiSelectWorld)
+	static String func_82313_g(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.localizedWorldText;
 	}
 
-	static DateFormat func_82315_h(CustomGuiSelectWorld par0GuiSelectWorld)
+	static DateFormat func_82315_h(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.dateFormatter;
 	}
 
-	static String func_82311_i(CustomGuiSelectWorld par0GuiSelectWorld)
+	static String func_82311_i(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.localizedMustConvertText;
 	}
 
-	static String[] func_82314_j(CustomGuiSelectWorld par0GuiSelectWorld)
+	static String[] func_82314_j(GuiPickWorld par0GuiSelectWorld)
 	{
 		return par0GuiSelectWorld.localizedGameModeText;
 	}

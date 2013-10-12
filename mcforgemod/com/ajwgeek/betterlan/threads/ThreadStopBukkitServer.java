@@ -1,14 +1,14 @@
 package com.ajwgeek.betterlan.threads;
 
-import com.ajwgeek.betterlan.gui.progress.GuiScreenLoading;
+import com.ajwgeek.betterlan.gui.progress.GuiLoadingScreen;
 import com.ajwgeek.betterlan.server.BetterlanServer;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
-public class BukkitServerStopThread extends Thread
+public class ThreadStopBukkitServer extends Thread
 {
 	private BetterlanServer server;
 
-	public BukkitServerStopThread(BetterlanServer srvr)
+	public ThreadStopBukkitServer(BetterlanServer srvr)
 	{
 		server = srvr;
 	}
@@ -22,7 +22,7 @@ public class BukkitServerStopThread extends Thread
 			server.lan.setSharedServer(false);
 			server.lan.setServer(new BetterlanServer());
 			server.lan.setCheatsEnabled(false);
-			GuiScreenLoading.setOutput("Preparing Server");
+			GuiLoadingScreen.setOutput("Preparing Server");
 			//TODO Delete ops, bans
 		}
 		catch (Exception e)

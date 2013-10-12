@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
+import com.ajwgeek.betterlan.constant.Constants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,16 +18,16 @@ public class GuiErrorScreen extends GuiScreen
 
 	public GuiErrorScreen(Exception e)
 	{
-		this.message1 = GlobalVariables.severeError;
+		this.message1 = Constants.severeError;
 		this.message2 = e.getClass().getName();	
-		this.message3 = GlobalVariables.errorSaved;
+		this.message3 = Constants.errorSaved;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void initGui()
 	{
 		super.initGui();
-		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 50, GlobalVariables.close));
+		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 50, Constants.close));
 	}
 
 	public void drawScreen(int par1, int par2, float par3)

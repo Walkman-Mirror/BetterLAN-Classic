@@ -1,3 +1,7 @@
 name: BetterLAN
 main: com.ajwgeek.betterlan.plugin.BetterLAN
 version: 1.0.6
+commands:
+   betterlan_broadcast:
+      description: Broadcasts information for the server
+      usage: /broadcast <message>

@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class CustomGuiCreateWorld extends GuiCreateWorld
+public class GuiMakeWorld extends GuiCreateWorld
 {
 	protected GuiScreen parentScreen;
 	private boolean createClicked;
@@ -30,7 +30,7 @@ public class CustomGuiCreateWorld extends GuiCreateWorld
 	private boolean commandsAllowed;
 	private String gameMode = "survival";
 	private boolean generateStructures = true;
-	public CustomGuiCreateWorld(GuiScreen par1GuiScreen)
+	public GuiMakeWorld(GuiScreen par1GuiScreen)
 	{
 		super(par1GuiScreen);
 		parentScreen = par1GuiScreen;

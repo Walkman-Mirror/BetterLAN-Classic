@@ -12,16 +12,10 @@ import com.ajwgeek.betterlan.src.BetterLAN;
 
 @SuppressWarnings("deprecation")
 public class ExceptionHandler
-{
-	public ExceptionHandler()
-	{
-		
-	}
-	
+{	
 	public void handleException(Exception e)
 	{
 		e.printStackTrace();
-		
 		PrintWriter out;
 		try
 		{
@@ -33,7 +27,6 @@ public class ExceptionHandler
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
 		}
-		
 		ModLoader.getMinecraftInstance().displayGuiScreen(new GuiErrorScreen(e));
 	}
 }

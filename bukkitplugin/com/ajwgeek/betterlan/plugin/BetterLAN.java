@@ -1,6 +1,9 @@
 package com.ajwgeek.betterlan.plugin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -10,7 +13,7 @@ import org.jgroups.JChannel;
 public final class BetterLAN extends JavaPlugin implements Listener
 {
 	private JChannel channel;
-	
+
 	public void onDisable()
 	{
 		channel.close();
@@ -28,6 +31,34 @@ public final class BetterLAN extends JavaPlugin implements Listener
 		catch (Exception e)
 		{
 			e.printStackTrace();
+		}
+	}
+
+	@EventHandler
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
+	{
+		if (cmd.getName().equalsIgnoreCase("betterlan_broadcast"))
+		{
+			if (sender == Bukkit.getConsoleSender())
+			{
+				StringBuilder sb = new StringBuilder();
+				
+				for (String s: args)
+				{
+					sb.append(s).append(" ");
+				}
+				
+				Bukkit.broadcastMessage(sb.toString());
+				return true;
+			}
+			else
+			{
+				sender.sendMessage(ChatColor.RED + "You do not have permission to perform this action!");
+				return false;
+			}
+		}
+		{
+			return false;
 		}
 	}
 

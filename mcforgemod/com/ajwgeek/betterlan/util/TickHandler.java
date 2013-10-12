@@ -11,8 +11,8 @@ import net.minecraft.client.gui.GuiSelectWorld;
 
 import org.lwjgl.input.Keyboard;
 
-import com.ajwgeek.betterlan.gui.debug.GuiDebug;
-import com.ajwgeek.betterlan.gui.progress.GuiScreenDownloadingResources;
+import com.ajwgeek.betterlan.gui.debug.GuiDebugScreen;
+import com.ajwgeek.betterlan.gui.progress.GuiDownloadingResources;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
 import cpw.mods.fml.common.ITickHandler;
@@ -72,7 +72,7 @@ public class TickHandler implements ITickHandler
 		{
 			if (var3 instanceof GuiIngameMenu)
 			{
-				displayGuiScreen(new com.ajwgeek.betterlan.gui.basemod.CustomGuiPause());
+				displayGuiScreen(new com.ajwgeek.betterlan.gui.basemod.GuiPause());
 			}
 			if (var3 instanceof GuiDisconnected)
 			{
@@ -81,7 +81,7 @@ public class TickHandler implements ITickHandler
 
 			if (var3 instanceof GuiSelectWorld)
 			{
-				displayGuiScreen(new com.ajwgeek.betterlan.gui.basemod.CustomGuiSelectWorld(null));
+				displayGuiScreen(new com.ajwgeek.betterlan.gui.basemod.GuiPickWorld(null));
 			}
 
 			if (var3 instanceof GuiMainMenu)
@@ -90,7 +90,7 @@ public class TickHandler implements ITickHandler
 				{
 					if (!BetterLAN.instance.getServerDownloaded() && !downloading)
 					{
-						displayGuiScreen(new GuiScreenDownloadingResources(false));
+						displayGuiScreen(new GuiDownloadingResources(false));
 						downloading = true;
 						return;
 					}
@@ -98,7 +98,7 @@ public class TickHandler implements ITickHandler
 				
 				if (Keyboard.isKeyDown(Keyboard.KEY_D))
 				{
-					mc.displayGuiScreen(new GuiDebug());
+					mc.displayGuiScreen(new GuiDebugScreen());
 				}
 			}
 		}

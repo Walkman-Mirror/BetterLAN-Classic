@@ -8,21 +8,21 @@ import net.minecraft.client.multiplayer.ServerAddress;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.WorldClient;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
-import com.ajwgeek.betterlan.gui.progress.GuiScreenProgress;
+import com.ajwgeek.betterlan.constant.Constants;
+import com.ajwgeek.betterlan.gui.progress.GuiProgress;
 import com.ajwgeek.betterlan.threads.ThreadConnectToServer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class CustomGuiConnecting extends GuiScreenProgress
+public class GuiLoading extends GuiProgress
 {
     private NetClientHandler clientHandler;
     private boolean cancelled;
     private final GuiScreen field_98098_c;
     
-	public CustomGuiConnecting(GuiScreen par1GuiScreen, Minecraft par2Minecraft, ServerData par3ServerData)
+	public GuiLoading(GuiScreen par1GuiScreen, Minecraft par2Minecraft, ServerData par3ServerData)
     {
         this.mc = par2Minecraft;
         this.field_98098_c = par1GuiScreen;
@@ -32,7 +32,7 @@ public class CustomGuiConnecting extends GuiScreenProgress
         this.spawnNewServerThread(serveraddress.getIP(), serveraddress.getPort());
     }
 
-    public CustomGuiConnecting(GuiScreen par1GuiScreen, Minecraft par2Minecraft, String par3Str, int par4)
+    public GuiLoading(GuiScreen par1GuiScreen, Minecraft par2Minecraft, String par3Str, int par4)
     {
         this.mc = par2Minecraft;
         this.field_98098_c = par1GuiScreen;
@@ -67,56 +67,56 @@ public class CustomGuiConnecting extends GuiScreenProgress
     public void drawScreen(int par1, int par2, float par3)
     {
 		drawDefaultBackground();
-		this.drawCenteredString(this.fontRenderer, GlobalVariables.connectingText, this.width / 2, this.height / 2, 0xFFFFFF);
+		this.drawCenteredString(this.fontRenderer, Constants.connectingText, this.width / 2, this.height / 2, 0xFFFFFF);
 		incrementAndDraw();
     }
 
-    public static NetClientHandler setNetClientHandler(CustomGuiConnecting par0GuiConnecting, NetClientHandler par1NetClientHandler)
+    public static NetClientHandler setNetClientHandler(GuiLoading par0GuiConnecting, NetClientHandler par1NetClientHandler)
     {
         return par0GuiConnecting.clientHandler = par1NetClientHandler;
     }
 
-    public static Minecraft func_74256_a(CustomGuiConnecting par0GuiConnecting)
+    public static Minecraft func_74256_a(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.mc;
     }
 
-    public static boolean isCancelled(CustomGuiConnecting par0GuiConnecting)
+    public static boolean isCancelled(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.cancelled;
     }
 
-    public static Minecraft func_74254_c(CustomGuiConnecting par0GuiConnecting)
+    public static Minecraft func_74254_c(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.mc;
     }
 
-    public static NetClientHandler getNetClientHandler(CustomGuiConnecting par0GuiConnecting)
+    public static NetClientHandler getNetClientHandler(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.clientHandler;
     }
 
-    public static GuiScreen func_98097_e(CustomGuiConnecting par0GuiConnecting)
+    public static GuiScreen func_98097_e(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.field_98098_c;
     }
 
-    public static Minecraft func_74250_f(CustomGuiConnecting par0GuiConnecting)
+    public static Minecraft func_74250_f(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.mc;
     }
 
-    public static Minecraft func_74251_g(CustomGuiConnecting par0GuiConnecting)
+    public static Minecraft func_74251_g(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.mc;
     }
 
-    public static Minecraft func_98096_h(CustomGuiConnecting par0GuiConnecting)
+    public static Minecraft func_98096_h(GuiLoading par0GuiConnecting)
     {
         return par0GuiConnecting.mc;
     }
     
-    public static void forceTermination(CustomGuiConnecting gui)
+    public static void forceTermination(GuiLoading gui)
     {
         gui.cancelled = true;
         gui.clientHandler = null;

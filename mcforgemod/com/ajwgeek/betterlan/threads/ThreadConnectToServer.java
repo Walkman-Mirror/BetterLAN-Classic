@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiDisconnected;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.network.packet.Packet2ClientProtocol;
 
-import com.ajwgeek.betterlan.gui.basemod.CustomGuiConnecting;
+import com.ajwgeek.betterlan.gui.basemod.GuiLoading;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,9 +17,9 @@ public class ThreadConnectToServer extends Thread
 {
     final String ip;
     final int port;
-    final CustomGuiConnecting connectingGui;
+    final GuiLoading connectingGui;
 
-    public ThreadConnectToServer(CustomGuiConnecting par1GuiConnecting, String par2Str, int par3)
+    public ThreadConnectToServer(GuiLoading par1GuiConnecting, String par2Str, int par3)
     {
         this.connectingGui = par1GuiConnecting;
         this.ip = par2Str;
@@ -30,41 +30,41 @@ public class ThreadConnectToServer extends Thread
     {
         try
         {
-            CustomGuiConnecting.setNetClientHandler(this.connectingGui, new NetClientHandler(CustomGuiConnecting.func_74256_a(this.connectingGui), this.ip, this.port));
+            GuiLoading.setNetClientHandler(this.connectingGui, new NetClientHandler(GuiLoading.func_74256_a(this.connectingGui), this.ip, this.port));
 
-            if (CustomGuiConnecting.isCancelled(this.connectingGui))
+            if (GuiLoading.isCancelled(this.connectingGui))
             {
                 return;
             }
 
-            CustomGuiConnecting.getNetClientHandler(this.connectingGui).addToSendQueue(new Packet2ClientProtocol(74, CustomGuiConnecting.func_74254_c(this.connectingGui).getSession().getUsername(), this.ip, this.port));
+            GuiLoading.getNetClientHandler(this.connectingGui).addToSendQueue(new Packet2ClientProtocol(74, GuiLoading.func_74254_c(this.connectingGui).getSession().getUsername(), this.ip, this.port));
         }
         catch (UnknownHostException unknownhostexception)
         {
-            if (CustomGuiConnecting.isCancelled(this.connectingGui))
+            if (GuiLoading.isCancelled(this.connectingGui))
             {
                 return;
             }
 
-            CustomGuiConnecting.func_74250_f(this.connectingGui).displayGuiScreen(new GuiDisconnected(CustomGuiConnecting.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {"Unknown host \'" + this.ip + "\'"}));
+            GuiLoading.func_74250_f(this.connectingGui).displayGuiScreen(new GuiDisconnected(GuiLoading.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {"Unknown host \'" + this.ip + "\'"}));
         }
         catch (ConnectException connectexception)
         {
-            if (CustomGuiConnecting.isCancelled(this.connectingGui))
+            if (GuiLoading.isCancelled(this.connectingGui))
             {
                 return;
             }
 
-            CustomGuiConnecting.func_74251_g(this.connectingGui).displayGuiScreen(new GuiDisconnected(CustomGuiConnecting.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {connectexception.getMessage()}));
+            GuiLoading.func_74251_g(this.connectingGui).displayGuiScreen(new GuiDisconnected(GuiLoading.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {connectexception.getMessage()}));
         }
         catch (Exception exception)
         {
-            if (CustomGuiConnecting.isCancelled(this.connectingGui))
+            if (GuiLoading.isCancelled(this.connectingGui))
             {
                 return;
             }
 
-            CustomGuiConnecting.func_98096_h(this.connectingGui).displayGuiScreen(new GuiDisconnected(CustomGuiConnecting.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {exception.toString()}));
+            GuiLoading.func_98096_h(this.connectingGui).displayGuiScreen(new GuiDisconnected(GuiLoading.func_98097_e(this.connectingGui), "connect.failed", "disconnect.genericReason", new Object[] {exception.toString()}));
         }
     }
 }

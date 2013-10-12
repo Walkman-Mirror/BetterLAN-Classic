@@ -16,7 +16,7 @@ import net.minecraft.util.StatCollector;
 
 import com.ajwgeek.betterlan.src.BetterLAN;
 
-public class CustomGuiPause extends GuiIngameMenu
+public class GuiPause extends GuiIngameMenu
 {
 	@SuppressWarnings("unchecked")
 	@Override
@@ -87,7 +87,7 @@ public class CustomGuiPause extends GuiIngameMenu
 			}
 			else
 			{
-				this.mc.displayGuiScreen(new CustomGuiShareToLan(this));
+				this.mc.displayGuiScreen(new GuiOpenToLan(this));
 				break;
 			}
 		}

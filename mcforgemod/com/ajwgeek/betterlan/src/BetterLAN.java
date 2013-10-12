@@ -1,6 +1,6 @@
 package com.ajwgeek.betterlan.src;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
+import com.ajwgeek.betterlan.constant.Constants;
 import com.ajwgeek.betterlan.exception.ExceptionHandler;
 import com.ajwgeek.betterlan.server.BetterlanServer;
 import com.ajwgeek.betterlan.server.BukkitActionHelper;
@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = GlobalVariables.modID, name = GlobalVariables.modName, version = GlobalVariables.modVersion, useMetadata = false)
+@Mod(modid = Constants.modID, name = Constants.modName, version = Constants.modVersion, useMetadata = false)
 
 public class BetterLAN extends BetterlanLogic
 {

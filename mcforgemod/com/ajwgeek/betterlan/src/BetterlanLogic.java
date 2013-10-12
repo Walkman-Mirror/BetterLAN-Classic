@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.WorldSettings;
 import net.minecraftforge.common.Configuration;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
+import com.ajwgeek.betterlan.constant.Constants;
 import com.ajwgeek.betterlan.exception.ExceptionHandler;
 import com.ajwgeek.betterlan.server.BetterlanServer;
 import com.ajwgeek.betterlan.server.BukkitActionHelper;
@@ -111,7 +111,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.settingsFile;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.settingsFile;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -125,7 +125,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.serverFilesFolder;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.serverFilesFolder;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -144,7 +144,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.jgLicenseFile;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.jgLicenseFile;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -165,7 +165,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.cbLicenseFile;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.cbLicenseFile;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -186,7 +186,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = serverPluginsFolder().getCanonicalPath() + "/" + GlobalVariables.pName;
+			a = serverPluginsFolder().getCanonicalPath() + "/" + Constants.pName;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -221,7 +221,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.serverFilesFolder + "/" + GlobalVariables.serverPluginsFolder;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.serverFilesFolder + "/" + Constants.serverPluginsFolder;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -252,7 +252,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.serverFilesFolder + "/configurations/";
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.serverFilesFolder + "/configurations/";
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -266,7 +266,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/error.log";
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/error.log";
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -280,7 +280,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.serverFilesFolder + "/configurations.zip";
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.serverFilesFolder + "/configurations.zip";
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);
@@ -294,7 +294,7 @@ public class BetterlanLogic
 		String a = null;
 		try
 		{
-			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.serverFilesFolder + "/" + GlobalVariables.serverJarName;
+			a = getMinecraftDir().getCanonicalPath() + "/" + Constants.modFolderName + "/" + Constants.serverFilesFolder + "/" + Constants.serverJarName;
 		} catch (IOException e)
 		{
 			BetterLAN.instance.getExceptionHandler().handleException(e);

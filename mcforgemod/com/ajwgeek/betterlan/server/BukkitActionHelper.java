@@ -4,7 +4,7 @@ import org.jgroups.Channel;
 import org.jgroups.JChannel;
 import org.jgroups.Message;
 
-import com.ajwgeek.betterlan.constant.GlobalVariables;
+import com.ajwgeek.betterlan.constant.Constants;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
 public class BukkitActionHelper
@@ -16,7 +16,7 @@ public class BukkitActionHelper
 		try
 		{
 			channel = new JChannel();
-			channel.connect(GlobalVariables.modID);
+			channel.connect(Constants.modID);
 		}
 		catch (Exception e)
 		{

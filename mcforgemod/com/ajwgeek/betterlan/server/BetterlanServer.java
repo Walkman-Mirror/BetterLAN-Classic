@@ -3,18 +3,20 @@ package com.ajwgeek.betterlan.server;
 import java.io.IOException;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ThreadLanServerPing;
 import net.minecraft.world.WorldSettings;
 
 import com.ajwgeek.betterlan.src.BetterLAN;
-import com.ajwgeek.betterlan.threads.BukkitServerStopThread;
-import com.ajwgeek.betterlan.threads.BukkitServerThread;
+import com.ajwgeek.betterlan.threads.ThreadStopBukkitServer;
+import com.ajwgeek.betterlan.threads.ThreadBukkitServer;
 
 public class BetterlanServer
 {
 	public String worldName;
 	public BetterLAN lan;
 	public WorldSettings w;
-
+	public ThreadLanServerPing lanServerPing;
+	
 	public void sendCommand(String var1)
 	{
 		try
@@ -28,6 +30,25 @@ public class BetterlanServer
 		
 	}
 
+	public String getMOTD()
+	{
+		return Minecraft.getMinecraft().getSession().getUsername() + " - " + worldName;
+	}
+	
+	public void shareToLAN()
+	{
+		String s = String.valueOf(25565);
+        try
+		{
+			this.lanServerPing = new ThreadLanServerPing(this.getMOTD(), s);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+        this.lanServerPing.start();	
+	}
+	
 	public void declareIntegratedServer(String worldPlaying, WorldSettings w)
 	{
 		this.lan = BetterLAN.instance;
@@ -38,7 +59,7 @@ public class BetterlanServer
 	public void stopServer() throws InterruptedException, IOException
 	{
 		if (BetterLAN.instance.isServerRunning())
-			new BukkitServerStopThread(this).start();
+			new ThreadStopBukkitServer(this).start();
 	}
 
 	public void processWorldSettings()
@@ -50,6 +71,6 @@ public class BetterlanServer
 
 	public void start()
 	{
-		new BukkitServerThread(this).start();
+		new ThreadBukkitServer(this).start();
 	}
 }

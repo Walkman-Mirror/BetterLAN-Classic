@@ -8,11 +8,11 @@ import java.net.URLClassLoader;
 import com.ajwgeek.betterlan.server.BetterlanServer;
 import com.ajwgeek.betterlan.src.BetterLAN;
 
-public class BukkitServerThread extends Thread
+public class ThreadBukkitServer extends Thread
 {
 	private BetterlanServer server;
 
-	public BukkitServerThread(BetterlanServer srvr)
+	public ThreadBukkitServer(BetterlanServer srvr)
 	{
 		server = srvr;
 	}

@@ -1,7 +1,7 @@
 package com.ajwgeek.betterlan.constant;
 
 
-public class GlobalVariables
+public class Constants
 {
 	//Start Updated Every Release
 	public static final String minecraftversion     = "1.6.4";
@@ -37,5 +37,9 @@ public class GlobalVariables
 	public static final String severeError          = "Severe Error:";
 	public static final String restartNow           = "Please restart Minecraft to continue!";
 	public static final String close                = "Quit Game";
+	public static final String debugTitle           = "BetterLAN Debug Toolkit";
+	public static final String done                 = "Done";
+	public static final String forceupdate          = "Force update";
+	public static final String sharedOverLAN        = "LAN world shared on: ";
 	//End GUI Strings
 }
