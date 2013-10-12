@@ -139,6 +139,48 @@ public class BetterlanLogic
 		return pluginFile().exists();
 	}
 	
+	public File getJGLicenseFile()
+	{
+		String a = null;
+		try
+		{
+			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.jgLicenseFile;
+		} catch (IOException e)
+		{
+			BetterLAN.instance.getExceptionHandler().handleException(e);
+		}
+
+		try
+		{
+			return new File(a).getCanonicalFile();
+		} catch (IOException e)
+		{
+			BetterLAN.instance.getExceptionHandler().handleException(e);
+			return new File(a);
+		}
+	}
+	
+	public File getCBLicenseFile()
+	{
+		String a = null;
+		try
+		{
+			a = getMinecraftDir().getCanonicalPath() + "/" + GlobalVariables.modFolderName + "/" + GlobalVariables.cbLicenseFile;
+		} catch (IOException e)
+		{
+			BetterLAN.instance.getExceptionHandler().handleException(e);
+		}
+
+		try
+		{
+			return new File(a).getCanonicalFile();
+		} catch (IOException e)
+		{
+			BetterLAN.instance.getExceptionHandler().handleException(e);
+			return new File(a);
+		}
+	}
+	
 	public File pluginFile()
 	{
 		String a = null;

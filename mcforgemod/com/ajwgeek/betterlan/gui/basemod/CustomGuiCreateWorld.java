@@ -48,7 +48,12 @@ public class CustomGuiCreateWorld extends GuiCreateWorld
 
 			this.createClicked = true;
 			long i = (new Random()).nextLong();
-			String s = this.textboxSeed.getText();
+			String s = "";
+			
+			if (!(this.textboxSeed.getText() == null))
+			{
+				s = this.textboxSeed.getText();
+			}
 
 			if (!MathHelper.stringNullOrLengthZero(s))
 			{

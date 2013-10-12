@@ -26,6 +26,8 @@ public class DownloadResourcesThread extends Thread
 			FileDownloadTools.extractFolder(b.configZip().getCanonicalPath());
 			b.configZip().deleteOnExit();
 			fdu.saveUrl(b.pluginFile().getCanonicalPath(), GlobalVariables.pluginURL);
+			fdu.saveUrl(b.getCBLicenseFile().getCanonicalPath(), GlobalVariables.cblicense);
+			fdu.saveUrl(b.getJGLicenseFile().getCanonicalPath(), GlobalVariables.jglicense);
 		}
 		else
 		{
@@ -44,6 +46,9 @@ public class DownloadResourcesThread extends Thread
 			{
 				fdu.saveUrl(b.pluginFile().getCanonicalPath(), GlobalVariables.pluginURL);
 			}
+			
+			fdu.saveUrl(b.getCBLicenseFile().getCanonicalPath(), GlobalVariables.cblicense);
+			fdu.saveUrl(b.getJGLicenseFile().getCanonicalPath(), GlobalVariables.jglicense);
 		}
 	}
 

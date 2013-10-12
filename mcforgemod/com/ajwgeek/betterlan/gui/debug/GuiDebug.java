@@ -38,7 +38,7 @@ public class GuiDebug extends GuiScreenProgress
 				fdu.saveUrl(b.configZip().getCanonicalPath(), GlobalVariables.configDownloadURL);
 				FileDownloadTools.extractFolder(b.configZip().getCanonicalPath());
 				b.configZip().deleteOnExit();
-				fdu.saveUrl(b.pluginFile().getCanonicalPath(), GlobalVariables.pluginURL);
+				fdu.saveUrl(b.pluginFile().getCanonicalPath(), GlobalVariables.jglicense);
 				guiButton.displayString = "Done!";
 				guiButton.enabled = false;
 			}

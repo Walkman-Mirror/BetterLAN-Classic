@@ -12,9 +12,14 @@ public class GlobalVariables
 	public static final String serverDownloadURL = "https://dl.dropbox.com/s/s8hpmshosjygzdv/1.6.4.jar";
 	public static final String configDownloadURL = "https://dl.dropbox.com/s/7gwdayp1blum0fh/configurations.zip";
 	public static final String pluginURL         = "https://dl.dropbox.com/s/835pq9h0q04rxdq/plugin.jar";
+	public static final String jglicense         = "https://dl.dropbox.com/s/cf2a162i4z0n2q6/JG-LICENSE.txt";
+	public static final String cblicense         = "https://dl.dropbox.com/s/li6i38gfq144ij7/CB-LICENSE.txt";
+	
 	public static final String serverJarName = "1.6.4.jar";
 	public static final String pName = "betterlan-1.6.4.jar";
 	public static final String settingsFile = "betterlan_settings_1_6_4.cfg";
+	public static final String jgLicenseFile = "JGroups License.txt";
+	public static final String cbLicenseFile = "CraftBukkit License.txt";
 	//End Updated Every Release
 	
 	//Start Folder Names
