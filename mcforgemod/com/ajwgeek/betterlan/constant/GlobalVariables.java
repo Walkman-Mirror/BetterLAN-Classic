@@ -5,19 +5,17 @@ public class GlobalVariables
 {
 	//Start Updated Every Release
 	public static final String minecraftversion = "1.6.4";
-	public static final String modVersion = "1.0.0.1"; //Major Minor Revision Build
+	public static final String modVersion = "v1.0.5"; //Major Minor Revision
 	public static final String modID = "BetterLAN";
 	public static final String modName = "BetterLAN";
-	
-	public static final String serverDownloadURL = "https://dl.dropbox.com/s/s8hpmshosjygzdv/1.6.4.jar";
-	public static final String configDownloadURL = "https://dl.dropbox.com/s/7gwdayp1blum0fh/configurations.zip";
-	public static final String pluginURL         = "https://dl.dropbox.com/s/835pq9h0q04rxdq/plugin.jar";
-	public static final String jglicense         = "https://dl.dropbox.com/s/cf2a162i4z0n2q6/JG-LICENSE.txt";
-	public static final String cblicense         = "https://dl.dropbox.com/s/li6i38gfq144ij7/CB-LICENSE.txt";
-	
-	public static final String serverJarName = "1.6.4.jar";
-	public static final String pName = "betterlan-1.6.4.jar";
-	public static final String settingsFile = "betterlan_settings_1_6_4.cfg";
+	public static final String serverDownloadURL = "https://dl.dropbox.com/s/xjn4cxgh1ciay4u/1.6.4.jar";
+	public static final String configDownloadURL = "https://dl.dropbox.com/s/ooly79c3pexr4ii/configurations.zip";
+	public static final String pluginURL         = "https://dl.dropbox.com/s/x53p6o8zm80nxqe/plugin.jar";
+	public static final String jglicense         = "https://dl.dropbox.com/s/epwm6dea2y460nm/JG-LICENSE.txt";
+	public static final String cblicense         = "https://dl.dropbox.com/s/ukgfonkf43aujw6/CB-LICENSE.txt";
+	public static final String serverJarName = "105.jar";
+	public static final String pName = "betterlan-1.0.5.jar";
+	public static final String settingsFile = "betterlan_settings_1_0_5.cfg";
 	public static final String jgLicenseFile = "JGroups License.txt";
 	public static final String cbLicenseFile = "CraftBukkit License.txt";
 	//End Updated Every Release
