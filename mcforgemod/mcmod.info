@@ -1,0 +1,21 @@
+{
+  "modinfoversion": 2,
+  "modlist": [{
+    "modid": "BetterLAN",
+    "name": "BetterLAN",
+    "description": "Adds an internal Bukkit server to your Minecraft installation.",
+    "version": "1.0.6",
+    "mcversion": "1.6.4",
+    "url": "http://www.ajwgeek.com/betterlan",
+    "updateUrl": "",
+    "authors": [ "AJWGeek", "Kovu", "Kicjow" ],
+    "credits": "Coding by AJWGeek and Kovu. Bug testing and Mac testing by Kicjow",
+    "logoFile": "",
+    "screenshots": [],
+    "parent": "",
+    "requiredMods": [ "Forge" ],
+    "dependencies": [],
+    "dependants": [],
+    "useDependencyInformation": "true"
+  }]
+}
