@@ -10,12 +10,12 @@ import net.minecraftforge.common.Configuration;
 import com.ajwgeek.betterlan.constant.GlobalVariables;
 import com.ajwgeek.betterlan.exception.ExceptionHandler;
 import com.ajwgeek.betterlan.server.BetterlanServer;
-import com.ajwgeek.betterlan.server.PluginClient;
+import com.ajwgeek.betterlan.server.BukkitActionHelper;
 
 public class BetterlanLogic
 {
 	protected static BetterlanServer modServer;
-	protected PluginClient serverOutputClient;
+	protected BukkitActionHelper serverOutputClient;
 	protected ExceptionHandler exceptionHandler;
 
 	protected boolean serverShared = false;
@@ -81,12 +81,12 @@ public class BetterlanLogic
 		this.serverRunning = serverStarted;
 	}
 
-	public void setPluginClient(PluginClient c)
+	public void setPluginClient(BukkitActionHelper c)
 	{
 		this.serverOutputClient = c;
 	}
 
-	public PluginClient getOutputClient()
+	public BukkitActionHelper getOutputClient()
 	{
 		return serverOutputClient;
 	}

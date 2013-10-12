@@ -1,6 +1,5 @@
 package com.ajwgeek.betterlan.gui.basemod;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -98,20 +97,9 @@ public class CustomGuiShareToLan extends GuiScreen
 		else if (par1GuiButton.id == 101)
 		{
 			this.mc.displayGuiScreen((GuiScreen) null);
-			try
-			{
-				BetterLAN.instance.getOutputClient().communicateWithServer("defaultgamemode " + this.gameMode);
-				BetterLAN.instance.setSharedServer(true);
-				BetterLAN.instance.setCheatsEnabled(this.allowCommands);
-			}
-			catch (ClassNotFoundException e)
-			{
-				BetterLAN.instance.getExceptionHandler().handleException(e);
-			}
-			catch (IOException e)
-			{
-				BetterLAN.instance.getExceptionHandler().handleException(e);
-			}
+			BetterLAN.instance.getOutputClient().sendCommand("defaultgamemode " + this.gameMode);
+			BetterLAN.instance.setSharedServer(true);
+			BetterLAN.instance.setCheatsEnabled(this.allowCommands);
 		}
 	}
 

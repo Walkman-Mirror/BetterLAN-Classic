@@ -19,7 +19,7 @@ public class BetterlanServer
 	{
 		try
 		{
-			this.lan.getOutputClient().communicateWithServer(var1);
+			this.lan.getOutputClient().sendCommand(var1);
 		}
 		catch (Exception e)
 		{
