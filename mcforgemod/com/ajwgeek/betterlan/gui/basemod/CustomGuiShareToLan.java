@@ -100,12 +100,7 @@ public class CustomGuiShareToLan extends GuiScreen
 			this.mc.displayGuiScreen((GuiScreen) null);
 			try
 			{
-				BetterLAN.instance.getOutputClient().communicateWithServer("hamachiStart", this.currentIP);
-
-				BetterLAN.instance.getOutputClient().communicateWithServer("share", this.currentIP);
-
-				BetterLAN.instance.getOutputClient().communicateWithServer("writeCommand", "defGuiScreentgamemode " + this.gameMode);
-
+				BetterLAN.instance.getOutputClient().communicateWithServer("defaultgamemode " + this.gameMode);
 				BetterLAN.instance.setSharedServer(true);
 				BetterLAN.instance.setCheatsEnabled(this.allowCommands);
 			}
